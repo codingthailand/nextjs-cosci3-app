@@ -1,28 +1,14 @@
-'use client'
+import Link from "next/link";
 
-import AppFooter from "./components/app-footer";
-import AppHeader from "./components/app-header";
-import AppProductCard from "./components/app-product-card";
-
+// http://localhost:3000/
 export default function Home() {
-
   return (
     <div>
-      <AppHeader />
-      Home Page
-      <AppProductCard 
-        name="Coke" 
-        price={20} 
-        stock={100} 
-        onAddToCart={ (name) => alert(`เพิ่ม ${name} ในตะกร้าแล้ว`) }
-      />
-      <AppProductCard 
-        name="Pepsi" 
-        price={30} 
-        stock={200}
-        onAddToCart={ (name) => alert(`เพิ่ม ${name} ในตะกร้าแล้ว`)}
-      />
-      <AppFooter />
+      สวัสดี Home Page
+      <hr />
+      <Link href="/about" className="underline">
+        About Page
+      </Link>
     </div>
   );
 }
