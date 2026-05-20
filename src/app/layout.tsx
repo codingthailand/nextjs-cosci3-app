@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Prompt, Roboto, Lora } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar";
 
 const loraHeading = Lora({subsets:['latin'],variable:'--font-heading'});
 
@@ -30,8 +31,7 @@ export default function RootLayout({
       className={cn(promptFont.className, "font-sans", roboto.variable, loraHeading.variable)}
     >
       <body>
-        <h1>Header Menu</h1>
-        <hr />
+        <Navbar />
         {children}
       </body>
     </html>
