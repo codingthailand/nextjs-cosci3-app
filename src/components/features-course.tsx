@@ -1,23 +1,5 @@
 import Image from "next/image";
 
-const features = [
-  {
-    title: "Identify Opportunities",
-    description: "Find untapped areas to explore effortlessly.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-051.jpg",
-  },
-  {
-    title: "Build Authority",
-    description: "Craft content that resonates and inspires trust.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-248.jpg",
-  },
-  {
-    title: "Instant Insights",
-    description: "Get actionable insights instantly at a glance.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-034.jpg",
-  },
-];
-
 type Props = {
   courses: any[];
 }
