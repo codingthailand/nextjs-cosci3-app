@@ -9,8 +9,10 @@ export default async function ProductPage() {
 
   return (
     <main>
-      { products.length> 0 && JSON.stringify(products) }
-      <FeaturesProduct />
+      {/* { products.length> 0 && JSON.stringify(products) } */}
+      {
+        products.length > 0 && <FeaturesProduct products={products} />
+      }
     </main>
   );
 }
