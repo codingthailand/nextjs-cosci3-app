@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import * as z from "zod"
@@ -21,6 +20,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { authClient } from "@/lib/auth-client"
 
 const registerSchema = z
   .object({
@@ -59,8 +59,19 @@ export default function RegisterForm() {
     },
   })
 
-  function onSubmit(data: RegisterFormValues) {
-    console.log(data);
+  async function onSubmit(data: RegisterFormValues) {
+     await authClient.signUp.email({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+     }, {
+        onSuccess: () => {
+          alert('สมัครสมาชิกสำเร็จ');
+        },
+        onError: (ctx) => {
+          alert(JSON.stringify(ctx.error));
+        }
+     });
   }
 
   return (
