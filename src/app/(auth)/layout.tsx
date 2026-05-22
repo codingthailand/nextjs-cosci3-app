@@ -15,7 +15,7 @@ export const promptFont = Prompt({
 
 
 export const metadata: Metadata = {
-  title: "ระบบล็อกอิน",
+  title: "ระบบ ล็อกอิน",
   description: "เรียนรู้การเขียน Nex.tjs",
 };
 
