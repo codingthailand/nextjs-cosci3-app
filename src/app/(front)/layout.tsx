@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Prompt, Roboto, Lora } from "next/font/google";
-import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
+import "../globals.css";
 
 const loraHeading = Lora({subsets:['latin'],variable:'--font-heading'});
 
