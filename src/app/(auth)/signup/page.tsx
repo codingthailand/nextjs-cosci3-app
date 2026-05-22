@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { authClient } from "@/lib/auth-client"
+import { useRouter } from "next/navigation"
 
 const registerSchema = z
   .object({
@@ -49,6 +50,7 @@ const registerSchema = z
 type RegisterFormValues = z.infer<typeof registerSchema>
 
 export default function RegisterForm() {
+  const router = useRouter();
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -67,6 +69,7 @@ export default function RegisterForm() {
      }, {
         onSuccess: () => {
           alert('สมัครสมาชิกสำเร็จ');
+          router.replace('/login');
         },
         onError: (ctx) => {
           alert(JSON.stringify(ctx.error));

@@ -20,6 +20,8 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { authClient } from "@/lib/auth-client"
+import { useRouter } from "next/navigation"
 
 const loginSchema = z.object({
   email: z
@@ -35,6 +37,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>
 
 export default function LoginForm() {
+  const router = useRouter();
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -43,8 +46,19 @@ export default function LoginForm() {
     },
   })
 
-  function onSubmit(data: LoginFormValues) {
-    console.log(data);
+  async function onSubmit(data: LoginFormValues) {
+        await authClient.signIn.email({
+          email: data.email,
+          password: data.password,
+         }, {
+            onSuccess: () => {
+              alert('เข้าระบบสำเร็จ');
+              router.replace('/');
+            },
+            onError: (ctx) => {
+              alert(JSON.stringify(ctx.error));
+            }
+         });
   }
 
   return (

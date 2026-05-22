@@ -6,8 +6,14 @@ import Link from "next/link";
 import { Badge } from "./ui/badge";
 import { ShoppingBasket } from "lucide-react";
 import CountCartItem from "@/app/(front)/components/CountCartItem";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth.api.getSession({
+    headers: await headers()
+  });
+
   return (
     <nav className="h-16 border-b bg-background">
       <div className="mx-auto flex h-full max-w-(--breakpoint-xl) items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -24,12 +30,28 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           
-          <Button asChild className="hidden sm:inline-flex" variant="outline">
-            <Link href="/login">เข้าสู่ระบบ</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/signup">สมัครสมาชิก</Link>
-          </Button>
+          {
+            !session && (
+              <>
+                <Button asChild className="hidden sm:inline-flex" variant="outline">
+                  <Link href="/login">เข้าสู่ระบบ</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/signup">สมัครสมาชิก</Link>
+                </Button>
+              </>
+            )
+          }
+
+          {
+            session && (
+              <>
+                <div className="flex items-center">
+                  สวัสดี, {session.user.name}
+                </div>
+              </>
+            )
+          }
 
           {/* Mobile Menu */}
           <div className="md:hidden">
