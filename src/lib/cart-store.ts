@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 
 type CartItem = {
   productId: string
-  title: string
+  name: string
   price: number
   qty: number
 }

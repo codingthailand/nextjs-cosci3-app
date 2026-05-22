@@ -37,7 +37,7 @@ export default function CartList() {
                 items.map((i) => (
                     <TableRow key={i.productId}>
                         <TableCell>{i.productId}</TableCell>
-                        <TableCell>{i.title}</TableCell>
+                        <TableCell>{i.name}</TableCell>
                         <TableCell>{i.price}</TableCell>
                         <TableCell>{i.qty}</TableCell>
                         <TableCell>{(i.price * i.qty).toFixed(2)}</TableCell>

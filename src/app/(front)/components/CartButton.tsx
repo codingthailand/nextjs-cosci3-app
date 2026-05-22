@@ -11,7 +11,7 @@ export default function CartButton({ product }: any) {
   const handleAddItem = () => {
      addItem({
         productId: product.id,
-        title: product.title,
+        name: product.name,
         price: product.price,
         qty: 1
      });   
