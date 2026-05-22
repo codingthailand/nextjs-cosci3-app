@@ -2,6 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { NavMenu } from "@/components/nav-menu";
 import { NavigationSheet } from "@/components/navigation-sheet";
+import Link from "next/link";
+import { Badge } from "./ui/badge";
+import { ShoppingBasket } from "lucide-react";
+import CountCartItem from "@/app/(front)/components/CountCartItem";
 
 const Navbar = () => {
   return (
@@ -11,6 +15,12 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <NavMenu className="hidden md:block" />
+
+        <Link href="/cart">
+          <Badge className="p-2 text-md">
+            <ShoppingBasket /> <CountCartItem /> ชิ้น
+          </Badge>
+        </Link>
 
         <div className="flex items-center gap-3">
           <Button className="hidden sm:inline-flex" variant="outline">
