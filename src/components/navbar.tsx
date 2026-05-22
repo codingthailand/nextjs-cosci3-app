@@ -23,10 +23,13 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-3">
-          <Button className="hidden sm:inline-flex" variant="outline">
-            Sign In
+          
+          <Button asChild className="hidden sm:inline-flex" variant="outline">
+            <Link href="/login">เข้าสู่ระบบ</Link>
           </Button>
-          <Button>Get Started</Button>
+          <Button asChild>
+            <Link href="/signup">สมัครสมาชิก</Link>
+          </Button>
 
           {/* Mobile Menu */}
           <div className="md:hidden">
