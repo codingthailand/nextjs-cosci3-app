@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Prompt, Roboto, Lora } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -31,7 +32,9 @@ export default function RootLayout({
       className={cn(promptFont.className, "font-sans", roboto.variable, loraHeading.variable)}
     >
       <body>
-        <Navbar />
+        <Suspense fallback={<div className="h-16 border-b bg-background" />}>
+          <Navbar />
+        </Suspense>
         {children}
       </body>
     </html>
