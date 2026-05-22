@@ -47,8 +47,10 @@ const Navbar = async () => {
           {
             session && (
               <>
-                <div className="flex items-center">
+                <div className="flex items-center mr-4">
                   สวัสดี, {session.user.name}
+                </div>
+                <div>
                   <LogoutButton />
                 </div>
               </>
