@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CartButton from "@/app/(front)/components/CartButton";
 import Image from "next/image";
 
