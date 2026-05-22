@@ -1,3 +1,4 @@
+import CartButton from "@/app/(front)/components/CartButton";
 import Image from "next/image";
 
 type Props = {
@@ -36,6 +37,9 @@ const FeaturesProduct = ({ products }: Props) => {
             <p className="mt-2 text-base text-foreground/70">
               Price: {product.price.toString()}
             </p>
+            <div className="mt-2">
+                <CartButton product={product} />
+            </div>
           </div>
         ))}
       </div>
